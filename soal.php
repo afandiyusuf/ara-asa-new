@@ -130,17 +130,16 @@
 
 
       var baseUrl = '../ara-asa-backend/public/api';
-      function next()
+
+      $.post(baseUrl+"/assigner/update",
       {
-          $.post(baseUrl+"/assigner/update",
-          {
-              assigner_id: <?php echo $_GET['id']; ?>,
-              data: JSON.stringify(jawabans),
-          },
-          function(data, status){
-              console.log(data);
-          });
-      }
+          assigner_id: <?php echo $_GET['id']; ?>,
+          data: JSON.stringify(jawabans),
+      },
+      function(data, status){
+          console.log(data);
+      });
+
 
     }else{
 
