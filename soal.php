@@ -101,6 +101,7 @@
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
   </body>
 </html>
+ <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="soal.js"></script>
 <script type="text/javascript">
 
@@ -126,6 +127,21 @@
       document.getElementById("halaman-text").style.display = "none";
       document.getElementById("perintah").style.display = "none";
       console.log(jawabans);
+
+
+      var baseUrl = '../ara-asa-backend/public/api';
+      function next()
+      {
+          $.post(baseUrl+"/assigner/update",
+          {
+              assigner_id: <?php echo $_GET['id']; ?>,
+              data: JSON.stringify(jawabans),
+          },
+          function(data, status){
+              console.log(data);
+          });
+      }
+
     }else{
 
       getJawaban();
